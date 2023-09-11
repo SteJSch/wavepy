@@ -1,0 +1,450 @@
+\documentclass[
+12pt,%% size of the main text
+a4paper,  %% paper format
+twoside        %% oneside: document is not printed on left and right
+]{report}
+
+\input{Set_Pack}
+\title{wavepy documentation}
+
+\begin{document}
+
+\etocsettocstyle{% before code
+    \noindent\rule{\linewidth}{.4pt}
+    \vspace*{-4\baselineskip}
+    \section*{}
+}
+{% after code
+    \noindent\rule{\linewidth}{.4pt}
+    \vspace*{2\baselineskip}
+}
+
+\maketitle
+
+\localtableofcontents
+
+\clearpage
+
+This documents contains the api descriptions of wavepy and some general remarks. 
+
+wavepy is a python wrapper for WAVE that allows easy calculation of spectra with wave from magnetic field data. Also functionality for the loading and interpolation of magnetic field data is incorporated.
+
+\chapter{Description of Usage}
+
+\section{Wave Axis Nomenclature}
+
+Flight direction of the electron is $x$. The vertical direction (in planer undulators) is called $y$ and the horizontal is $z$.
+
+\section{Spectrum Calculations}
+
+Import the wavepy project and create a wave instance by writing:
+\begin{verbatim}
+import wavepy as wpy
+wave = wpy.create_wave_instance('wave_from_by')
+\end{verbatim}
+WAVE can perform many different tasks, one of which is calculating a spectrum from a given B-field. This specific functionality is so far covered in wavepy. You can calculate the spectra from a magnetic field in $B_y$ direction only by using \verb+wave_from_by+, from $B_y$ and $B_z$ data by setting \verb+wave_from_byz+ and from all components by writing \verb+wave_from_bxyz+. All field data should be in the format of two cols, the first one containing x in mm and the second B in T, no separators and header lines.
+
+Next you can get standard wave parameters by writing:
+\begin{verbatim}
+paras = wave.get_paras()
+\end{verbatim}
+\clearpage
+\begin{landscape}
+The parameter object is a simple python dictionary with the following keys which correspond to wave settings:
+\begin{verbatim}
+			b_type - which type of b-calculation? 'By' - only By given, 'Byz'
+				and 'Bxyz'. Each b-field in different file
+			wave_prog_folder - main folder where wave is stored (ending on /)
+			in_file_folder - folder in which the wave in-files are stored (ending on /)
+			in_files - the wave in-files to be used for different b_type situations, is 
+			dic: { b_type : wave_in_file }	
+			field_folder - folder where b-field files are stored
+			field_files - the b-field files list, file format: 2cols:
+				 x[mm] and B[T], no separator and no headers
+			res_folder - the folder in which the results are to be stored (ending on /)
+			wave_data_res_folder - Subfolder of res_folder where wave data is stored
+			pics_folder - subfolder of res_folder were pics are stored
+			res_summary_file - name of the summary_file to be written
+			no_copy - list of file names not to be copied/moved after simulation from wave stage folder
+			wave_ending_extract - file endings to move from wave stage folder after simu
+			wave_ending_copy - file endings of files to be copied (not moved)
+			wave_res_copy_behaviour:
+				'copy_all', 'copy_del_none' - only writes res_summary, 'copy_essentials' 
+				only copies whats needed for: flux, flux_dens, flux_dens_distri, power, files 
+				set in wave_files_essentials
+			wave_files_essentials - essential files, if wave_res_copy_behaviour set to 'wave_res_copy_behaviour' 
+				only those files are stored
+			zip_res_folder - truth value, zip or not zip results
+			freq_low - lower frequency (actualy energy) of spectrum to calc [eV]
+			freq_high - upper frequency (actualy energy) of spectrum to calc [eV]
+			freq_num - number of frequencies to calc
+			beam_en - beam energy in [GeV]
+			current - current [A]
+			pinh_w - pinhole width (horizontal-z) [mm]
+			pinh_h - pinhole height (vertical-y) [mm]
+			spec_calc - truth value: calc spectrum or not, if not, only trajectory is written to file
+			pinh_x - position of pinhole along optical axis [m]
+			pinh_nz - number of points in pinhole horizontally
+			pinh_ny - number of points in pinhole vertically
+\end{verbatim}
+\end{landscape}
+Set parameters and run wave by:
+\begin{verbatim}
+wave.set_paras(paras)
+wave.run_wave()
+\end{verbatim}
+Extract and plot results by writing:
+\begin{verbatim}
+data = wave.extract_wave_results(results = ['flux_dens_distr','traj_magn',
+	'power_distr','flux','flux_dens',\
+ 	'brill' ], plot = True, en_range = [300,500])
+\end{verbatim}
+The result strings shown here are all that are permissible until now.
+
+\subsection{Summary File}
+
+wavepy then saves all the data that is set to be saved into the designated folder and zips all data for storage. On plotting the data is unzipped and zipped again. Furthermore, a file \verb+res_summary.txt+ is written and stored inside the zip archive. This file contains some general information extracted from wave about the current simulation run, including:
+\begin{verbatim}
+bmax [T] : max. b field
+bmin [T] : min. b field
+first_int [Tm] : first ingegral
+scnd_int [Tmm] : second integral
+power [kW] : total emitted power
+pinhole_x [m] : dist. of pinhole from undulator centre
+Fund. Freq. [eV] : fundamental frequency
+Undu_Para : undulator parameter K
+gamma : well, you guessed it
+half_opening_angle [rad] : the half-opening angle
+cone_radius_at_x [mm] : the cone-radius at the position
+	of the pinhole (tan(half_opening_angle)*pinhole_x)
+\end{verbatim}
+
+\section{B-Field Interpolation}
+
+Keep in mind that WAVE expects the magnetic field data over mm.
+
+You can load files containing magnetic field data for different gaps by writing:
+\begin{verbatim}
+b_field_data = wpy.load_b_fields_gap(folder)
+\end{verbatim}
+
+The file name format should be: somename + gap\_x\_ + restname + .ending. E.g.; \verb+myfile_g_23_.dat+. With the gap given in mm. 
+To plot the b-field data do:
+\begin{verbatim}
+wpy.plot_b_field_data( b_fields = b_field_data )
+\end{verbatim}
+You can center the data and cut all loaded magnetic fields to the defined on the same interval by writing:
+\begin{verbatim}
+wpy.center_b_field_data( b_fields = b_field_data, lim_peak = 0.01 )
+wpy.cut_data_support(b_fields = b_field_data, col_cut = 'x')
+\end{verbatim}
+The centering is done by identifying the first and last peaks and centering those. The option lim\_peak gives the minimal height a peak has to have to be identified as a peak - this is necessary to account for noise in the data.
+Save the processed fields by writing:
+\begin{verbatim}
+wpy.save_prepared_b_data(b_fields = b_field_data, folder = folder)
+\end{verbatim}
+Next we can interpolate the data by writing:
+\begin{verbatim}
+interp_field = wpy.interpolate_b_data(b_fields = b_field_data, 
+	gap = gap, lim_peak = 0.01)
+\end{verbatim}
+Where gap is the gap at which you'd like to interpolate.
+
+\chapter{Troubleshooting}
+
+\begin{itemize}
+\item WAVE cannot be executed: Is the file \verb+wavepy/WAVE/bin/wave.exe+ executable?
+\item If files cannot be copied after simulation: Is the result folder you specified existing?
+\item interpolated files cannot be saved: Is the folder where the files are supposed to go existing?
+\item WAVE is complaining about: ``NEGATIVE OR ZERO PHOTON ENERGY OCCURED WHILE EXTENDING ENERGY '' : Increase the number of energy points - parameter \verb+freq_num+. Wave is extending the energy range you speficied in order to calculate the folding procedure and may, with too little points on which to calculate, run into negative energies. This is especially important at low energy values.
+\item Wave complains it cannot find a zip file while trying to plot: Were the results files not properly stored before? Check if the data folder contains more than a zip file and delete everything but the zip.
+\end{itemize}
+
+\begin{landscape}
+
+\chapter{Documentation}
+\subsection{file\_folder\_helpers.py}
+Contains functionality for handling files
+\begin{itemize}
+\item \begin{verbatim}
+def find_files_exptn(folder, hints = [], exptns = []) :
+\end{verbatim}
+Finds all files whose name contains one of the strings in the 
+list hints, if empty, all files are loaded, from those files expludes those whose file name 
+contains one of the strings in the list exptns
+returns list of those filenames
+\item \begin{verbatim}
+def find_all_files_exptn(folder, exptns = []) :
+\end{verbatim}
+Finds all files in a directory. from those files expludes those whose file name 
+contains one of the strings in the list exptns
+returns list of those filenames
+\item \begin{verbatim}
+def zip_files_in_folder(folder_to_pack) :
+\end{verbatim}
+Zips all files in folder\_to\_pack, names the zip as the folder,
+Moves the resulting zip to directory folder\_to\_pack
+And deletes all other files in this directory
+\item \begin{verbatim}
+def unzip_zip_in_folder(folder) :
+\end{verbatim}
+Looks for a zip file in folder, unzips it there. Returns the extracted zip file list (empty 
+if none extracted and found)
+\item \begin{verbatim}
+def mv_cp_files(hints, exptns, folder_in, folder_out, move = True, add_string =
+'') :
+\end{verbatim}
+Moves files whose name contains some string from hints (excepting those whose name cont.
+some string from list exptns ) from folder\_in to folder\_out and 
+adds add\_string to name
+if move = False, then files are only copied
+Returns list of the names of the moved files (after adding add\_string)
+\item \begin{verbatim}
+def del_files(hints, exptns, folder) :
+\end{verbatim}
+Deletes files whose name contains some string from hints (excepting those whose name cont.
+some string from list exptns ) from folder
+Returns list of the names of the deleted files
+\item \begin{verbatim}
+def del_all_files(exptns, folder) :
+\end{verbatim}
+Deletes all files in directory (excepting those whose name cont.
+some string from list exptns ) from folder
+Returns list of the names of the deleted files
+\end{itemize}
+\subsection{wave\_b\_helper.py}
+Contains the functionality for loading and processing b-field data
+\begin{itemize}
+\item \begin{verbatim}
+def load_b_fields_gap(folder, hints = []) :
+\end{verbatim}
+Load field files from "folder" containing files with fields for different gaps
+The file format should be two rows, the first one 'x' in [mm], the second one 'By' [T]
+The file-name format should be: file\_name\_front + 'gap\_' + str(gap) + '\_' + file\_name\_back + '.' + file\_ending
+Returns list of dictionaries: { 'gap' : gap,'data' : pd.DataFrame(data), 'file\_name' : file\_name }, where data is a panda dataframe with rows
+"x" and "By"
+\item \begin{verbatim}
+def checkIfList_Conv(data) :
+\end{verbatim}
+Takes a data object which can be either list of dics or dataframe and converts
+it to a list
+\item \begin{verbatim}
+def checkIfDF_Conv(data) :
+\end{verbatim}
+Takes a data object which can be either list of dics or dataframe and converts
+it to a dataframe
+\item \begin{verbatim}
+def find_maxima(data, lim, colx = 0, coly = 1) :
+\end{verbatim}
+finds maxima in data whose value is at least |val| $>$= lim
+data is supposed to be a list of dictionaries or a panda dataframe 
+colx and coly give the column index of the x and y data
+returns a list containing 2 lists: one with x-coordinates and one 
+with y-coordinates of the maxima positions
+\item \begin{verbatim}
+def find_minima(data, lim, colx = 0, coly = 1) :
+\end{verbatim}
+finds minima in data whose value is at least |val| $>$= lim (lim$>$=0!)
+data is supposed to be a list of dictionaries or a panda dataframe 
+colx and coly give the column index of the x and y data
+returns a list containing 2 lists: one with x-coordinates and one 
+with y-coordinates of the minima positions
+\item \begin{verbatim}
+def find_extrema(data, lim, colx = 0, coly = 1) :
+\end{verbatim}
+finds extrema in data whose value is at least |val| $>$= lim
+data is supposed to be a list of dictionaries or a panda dataframe 
+colx and coly give the column index of the x and y data
+returns a list containing 2 lists: one with x-coordinates and one 
+with y-coordinates of the extremal positions
+\item \begin{verbatim}
+def gauge_b_field_data(b_fields, col, gauge_fac) :
+\end{verbatim}
+takes a list of b-fields as returned by load\_b\_fields\_gap and col, the name of the 
+data column of the data objects to gauge and the number gauge\_fac
+each element in the column col is then multiplied by gauge\_fac
+\item \begin{verbatim}
+def center_b_field_data(b_fields, lim_peak) :
+\end{verbatim}
+takes b-field data list loaded with load\_b\_fields\_gap and centers each field 
+according to the position of the first and last peak identified for which |peak| $>$= lim\_peak
+\item \begin{verbatim}
+def convert_x_mm_b_T_file_to_wave_std( folder_in, file_in, out_path ) :
+\end{verbatim}
+Loads a file in folder\_in called file\_in with two cols: x[mm] and B[T] - no header to separator
+and converts, depending on b\_type, to wave std and copies to out\_path (path+filename)
+\item \begin{verbatim}
+def plot_b_field_data( b_fields, gaps_plt = [] ) :
+\end{verbatim}
+\item \begin{verbatim}
+def cut_data_support(b_fields, col_cut = 'x') :
+\end{verbatim}
+takes b-field data list loaded with load\_b\_fields\_gap and
+cuts the fields to the smallest common support in the column
+col\_cut - afterwards all fiel-data is defined on the same col-values
+\item \begin{verbatim}
+def center_data(data, strat, colx = 0, coly = 1) :
+\end{verbatim}
+takes data - which is list of dics of dataframe - and centers it according to strategy in strat
+possible strat vals:
+{ 'name' : 'peak', 'lim' : lim } - determines peaks of |val|$>$=lim and first and last one are centered
+colx/y are the number of the x and y columns
+\item \begin{verbatim}
+def save_prepared_b_data(b_fields, folder, name_add = '') :
+\end{verbatim}
+takes b-field data list loaded with load\_b\_fields\_gap, a folder and a string name\_add 
+and saves all b-field data into the folder, the files are named according ot the 
+file\_name propertie in the b\_fields dictionaries with name\_add added to the file names
+\item \begin{verbatim}
+def interpolate_b_data(b_fields, gap, lim_peak, num_support_per_extrema = 20) :
+\end{verbatim}
+interpolates b-field data for a given gap using already present dataframes for different gaps
+takes b-field data list loaded with load\_b\_fields\_gap, a gap number, the lim\_peak value 
+used for findind the extrema in the data (for determination of the number of periods)
+and the number of support positions per extrema for the calculation of splines from the data
+Returns a list containing a dictionary: { 'gap' : gap,'data' : pd.DataFrame(data), 'file\_name' : file\_name }, where data is a panda dataframe 
+containing the interpolated data and file\_name contains the value of the gap at which this data is determined
+\end{itemize}
+\subsection{wavepy\_incl.py}
+Contains the import statements for wavepy modules
+\begin{itemize}
+\item \begin{verbatim}
+def to_scn(number,norm=True):
+\end{verbatim}
+converts number to scientific notation
+\end{itemize}
+\subsection{physical\_constants.py}
+Definition of some physical constants
+\subsection{\_\_init\_\_.py}
+wavepy is a litter python wrapper build for easy use of the program WAVE by Michael Scheer
+Import by writing: import wavepy as wpy
+\subsection{wave.py}
+Contains the wave\_from\_b class that incorporates the API from python to WAVE and the function create\_wave\_instance that 
+returns an instance of that class
+\begin{itemize}
+\item \begin{verbatim}
+class wave_from_b() :
+\end{verbatim}
+WAVE class to perform spectrum calculations from b-field data files
+\item \begin{verbatim}
+def __init__(self, b_type = 'By') :
+\end{verbatim}
+Initiates WAVE class object with std. WAVE parameters
+b\_type sets which b-fields are loaded from file: 'y': By,
+'yz' By and Bz, 'xyz' ... . Each B-field from different file
+\item \begin{verbatim}
+def get_std_paras(self, b_type = 'By') :
+\end{verbatim}
+Returns WAVE std. parameter dictionary. Entries are:
+b\_type - which type of b-calculation? 'By' - only By given, 'Byz'
+and 'Bxyz'. Each b-field in different file
+wave\_prog\_folder - main folder where wave is stored (ending on /)
+in\_file\_folder - folder in which the wave in-files are stored (ending on /)
+in\_files - the wave in-files to be used for different b\_type situations, is dic: { b\_type : wave\_in\_file }
+field\_folder - folder where b-field files are stored
+field\_files - the b-field files list, file format: 2cols:
+ x[mm] and B[T], no separator and no headers
+res\_folder - the folder in which the results are to be stored (ending on /)
+wave\_data\_res\_folder - Subfolder of res\_folder where wave data is stored
+pics\_folder - subfolder of res\_folder were pics are stored
+res\_summary\_file - name of the summary\_file to be written
+no\_copy - list of file names not to be copied/moved after simulation from wave stage folder
+wave\_ending\_extract - file endings to move from wave stage folder after simu
+wave\_ending\_copy - file endings of files to be copied (not moved)
+wave\_res\_copy\_behaviour:
+'copy\_all', 'copy\_del\_none' - only writes res\_summary, 'copy\_essentials' 
+only copies whats needed for: flux, flux\_dens, flux\_dens\_distri, power, files 
+set in wave\_files\_essentials
+wave\_files\_essentials - essential files, if wave\_res\_copy\_behaviour set to 'wave\_res\_copy\_behaviour' 
+only those files are stored
+zip\_res\_folder - truth value, zip or not zip results
+freq\_low - lower frequency (actualy energy) of spectrum to calc [eV]
+freq\_high - upper frequency (actualy energy) of spectrum to calc [eV]
+freq\_num - number of frequencies to calc
+beam\_en - beam energy in [GeV]
+current - current [A]
+pinh\_w - pinhole width (horizontal-z) [mm]
+pinh\_h - pinhole height (vertical-y) [mm]
+spec\_calc - truth value: calc spectrum or not, if not, only trajectory is written to file
+pinh\_x - position of pinhole along optical axis [m]
+pinh\_nz - number of points in pinhole horizontally
+pinh\_ny - number of points in pinhole vertically
+\item \begin{verbatim}
+def get_paras(self) :
+\end{verbatim}
+Returns current parameters
+\item \begin{verbatim}
+def set_paras(self,wave_paras) :
+\end{verbatim}
+Sets new parameters
+\item \begin{verbatim}
+def run_wave(self) :
+\end{verbatim}
+Runs wave and writes results
+\item \begin{verbatim}
+def prepare_b_files_for_wave(self) :
+\end{verbatim}
+In dependence of b\_type, copies and formats the b-field files needed
+\item \begin{verbatim}
+def edit_wave_results(self) :
+\end{verbatim}
+According to what is set in wave\_res\_copy\_behaviour cleans the wave-stage folder 
+and copies the desired files to their location, deletes non-desired files 
+and zips the results
+\item \begin{verbatim}
+def extract_summary(self, folder) :
+\end{verbatim}
+Extract summary information from wave run from files in folder folder and stores results in file my\_paras['res\_summary\_file']
+of folder
+\item \begin{verbatim}
+def create_wave_input(self, wave_paras) :
+\end{verbatim}
+loads the in-file set in wave\_paras,
+changes the properties according to other wave\_paras props and 
+copies the result to the WAVE program folder
+\item \begin{verbatim}
+def extract_wave_results(self, results, plot = False, en_range = [], xlim = [],
+ylim = [], save_data_w_pics = False) :
+\end{verbatim}
+Extracts the desired results and returns a dataframe with them
+results is a list containing either of : 
+'traj\_magn' : Extracts Trajectory and magnetic field data
+'power\_distr' : power distribution [W/mm to the 2]
+'flux' : Flux
+'flux\_dens' : Flux Density
+'flux\_dens\_distr' : Flux Density Distribution
+'brill' : Brilliance
+plot - determines if loaded data is plotted or not
+en\_range - for distribution: gives the energy range over which the data is integrated
+xlim and ylim set the limits of the distribution plots (in horizontal and vertical) to cut 
+the plots to the actual dimension of the pinhole used, and for 2d plots only xlim is 
+considered if given
+save\_data\_w\_pics - if True, saves the data for each plot alongside the pic
+returns a list of the loaded dataframes
+\item \begin{verbatim}
+def load_plot_stokes_distrib(self,folder, en_range = [], xlim = [], ylim = [],
+plot = True, save_folder = '',save_data_w_pics = False ) :
+\end{verbatim}
+loads stokes (flux-density) data from a folder, integrates the flux-density distribution over the en\_range 
+and cuts the plot horizontally and vertically to xlim and ylim, plots if plot = True and saves pic to save\_folder
+returns the loaded and integrated data object
+\item \begin{verbatim}
+def create_wave_instance(instance_type) :
+\end{verbatim}
+Takes the type of instance, instance\_type, of wave that is returned. Possible valus are:
+'wave\_from\_by'
+'wave\_from\_byz'
+'wave\_from\_bxyz'
+Returns instantiated instance of class
+\end{itemize}
+\subsection{eds\_fields.py}
+Example script file showing the usage of wavepy
+\subsection{annas\_9th.py}
+Example script file showing the usage of wavepy
+\subsection{wavepy\_spectrum\_example\_script.py}
+Example script file showing the usage of wavepy
+\subsection{wavepy\_b\_field\_example\_script.py}
+Example script file showing the usage of wavepy's b-field functionality
+\end{landscape}
+
+\end{document}

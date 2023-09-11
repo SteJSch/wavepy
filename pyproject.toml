@@ -1,0 +1,25 @@
+[project]
+name = "wavepy"
+version = "0.0.1"
+authors = [
+  { name="Stefan Schäfers", email="stefan.schaefers@helmholtz-berlin.de" },
+]
+description = "Python interface for Wave, undulator simulation program"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License"
+]
+
+dependencies = [
+            'pandas',
+            'scipy',
+            'matplotlib>=3.5.1',
+]
+
+[project.urls]
+"Homepage" = "https://github.com/SteJSch/wavepy"
+"Bug Tracker" = "https://github.com/SteJSch/wavepy/issues"
+#"Documentation" = "https://raypyng.readthedocs.io"

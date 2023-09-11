@@ -1,0 +1,61 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter C
+  \item \spxentry{children()}\spxextra{wavepy.wave\_elements.WaveElement method}, \hyperpage{12}
+  \item \spxentry{cleanup()}\spxextra{wavepy.postprocess\_wave\_files.PostprocessWaveFiles method}, 
+		\hyperpage{13}
+  \item \spxentry{create\_wave\_input()}\spxextra{wavepy.preprocess\_wave\_files.PreprocessWaveFiles method}, 
+		\hyperpage{13}
+
+  \indexspace
+  \bigletter E
+  \item \spxentry{edit\_wave\_results()}\spxextra{wavepy.postprocess\_wave\_files.PostprocessWaveFiles method}, 
+		\hyperpage{13}
+  \item \spxentry{extract\_summary()}\spxextra{wavepy.postprocess\_wave\_files.PostprocessWaveFiles method}, 
+		\hyperpage{14}
+  \item \spxentry{extract\_wave\_results()}\spxextra{wavepy.extract\_plot\_results.ExtractAndPlot method}, 
+		\hyperpage{14}
+  \item \spxentry{ExtractAndPlot}\spxextra{class in wavepy.extract\_plot\_results}, \hyperpage{14}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{get\_paras()}\spxextra{wavepy.wave.WaveFromB method}, \hyperpage{11}
+  \item \spxentry{get\_std\_paras()}\spxextra{wavepy.standard\_parameters.StdParameters method}, 
+		\hyperpage{12}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry{load\_plot\_stokes\_distrib()}\spxextra{wavepy.extract\_plot\_results.ExtractAndPlot method}, 
+		\hyperpage{14}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{PostprocessWaveFiles}\spxextra{class in wavepy.postprocess\_wave\_files}, 
+		\hyperpage{13}
+  \item \spxentry{prepare\_b\_files\_for\_wave()}\spxextra{wavepy.preprocess\_wave\_files.PreprocessWaveFiles method}, 
+		\hyperpage{13}
+  \item \spxentry{PreprocessWaveFiles}\spxextra{class in wavepy.preprocess\_wave\_files}, 
+		\hyperpage{13}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{run()}\spxextra{wavepy.wave\_API.WaveAPI method}, \hyperpage{11}
+  \item \spxentry{run\_wave()}\spxextra{wavepy.wave.WaveFromB method}, \hyperpage{11}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry{set\_paras()}\spxextra{wavepy.wave.WaveFromB method}, \hyperpage{11}
+  \item \spxentry{StdParameters}\spxextra{class in wavepy.standard\_parameters}, \hyperpage{12}
+
+  \indexspace
+  \bigletter W
+  \item \spxentry{WaveAPI}\spxextra{class in wavepy.wave\_API}, \hyperpage{11}
+  \item \spxentry{WaveAttribute}\spxextra{class in wavepy.wave\_elements}, \hyperpage{12}
+  \item \spxentry{WaveElement}\spxextra{class in wavepy.wave\_elements}, \hyperpage{12}
+  \item \spxentry{WaveFromB}\spxextra{class in wavepy.wave}, \hyperpage{11}
+
+\end{sphinxtheindex}

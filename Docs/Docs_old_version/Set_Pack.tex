@@ -1,0 +1,149 @@
+\pagestyle{headings}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+%number equations within sections
+\numberwithin{equation}{section}
+
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{pdflscape}
+\usepackage{mathtools}
+\usepackage{pdfpages}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{etoc} % for local TOC
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[autocite = superscript]{biblatex}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc}
+\usetikzlibrary{decorations}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage[utf8]{inputenc} 
+%fancypagestyle stuff
+\usepackage{fancyhdr}
+% allows to adjust images on the page
+\usepackage[export]{adjustbox}
+\usepackage{cleveref}
+\usepackage{bm}
+\usepackage{listings}        
+\usepackage[font=scriptsize,labelfont=bf]{caption}
+\usepackage[font=scriptsize]{subcaption}
+\usepackage[acronym,toc]{glossaries}
+\usepackage{perpage}
+\usepackage{longtable, multicol, tabularx}
+\usepackage{layouts}
+\usepackage{wrapfig}
+
+\MakePerPage{footnote}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+% /foot ******
+\usepackage{subfiles} % Best loaded last in the preamble
+
+\allowdisplaybreaks
+\lstset{language=Mathematica}
+
+% defining the colors of links
+%\hypersetup{
+%    colorlinks,
+%    citecolor=black,
+%    filecolor=black,
+%    linkcolor=black,
+%    urlcolor=black
+%}
+
+%Graphicpaths
+\graphicspath{ {./Pictures/1Osz/Qualitativ/} {./Pictures/1Osz/Surf/} {./Pictures/1Osz/Para/a/} {./Pictures/1Osz/Para/a_eq_e/} {./Pictures/1Osz/Para/e/} {./Pictures/2Osz/Qualitativ/} {./Pictures/2Osz/Surf/} {./Pictures/2Osz/Para/a/} {./Pictures/2Osz/Para/a/c/} {./Pictures/2Osz/Para/a/e/} {./Pictures/2Osz/Para/a/eta/} {./Pictures/2Osz/Para/e/} {./Pictures/2Osz/Para/e/c/} {./Pictures/2Osz/Para/e/a/} {./Pictures/2Osz/Para/e/eta/} }
+\newcommand{\PATHOOSZ}{./Pictures/1Osz/}
+\newcommand{\PATHTOSZ}{./Pictures/2Osz/}
+\newcommand{\MYSCALE}{0.2}
+
+%Header Definition..
+
+\fancypagestyle{MyStandardStyle}{
+\pagestyle{fancy}
+\lhead{}
+\chead{}}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{ #1}}
+
+\fancypagestyle{MyTextStyle}{
+\pagestyle{fancy}
+\fancyheadoffset[LE,RO]{\marginparsep+\marginparwidth}
+\fancyhf{}
+%\fancyhead[RO]{\textbf{\textcolor{orange}{$\blacksquare$}\quad\rightmark\quad\textcolor{blue}{\thepage}}}
+%\fancyhead[LE]{\textcolor{blue}{\textbf\thepage}\quad\textbf{\textcolor{orange}{$\blacksquare$}\quad\leftmark}}
+\fancyhead[RE]{\textbf{\thesection\text{ }- \rightmark\quad\textcolor{orange}{$\blacksquare$}\quad\textcolor{blue}{\thepage}}}
+\fancyhead[LO]{\textcolor{blue}{\textbf\thepage}\quad\textbf{\textcolor{orange}{$\blacksquare$} Chapter \thechapter\text{ }- \leftmark}}
+\fancypagestyle{plain}{\fancyhead{} % get rid of headers
+\renewcommand{\headrulewidth}{0pt}}
+}
+
+\fancypagestyle{MyAnhStyle}{
+\pagestyle{fancy}
+\fancyheadoffset[LE,RO]{\marginparsep+\marginparwidth}
+\fancyhf{}
+\fancyhead[RE]{\textbf{\thesection\text{ }- \rightmark\quad\textcolor{red}{$\blacksquare$}\quad\textcolor{blue}{\thepage}}}
+\fancyhead[LO]{\textcolor{blue}{\textbf\thepage}\quad\textbf{\textcolor{red}{$\blacksquare$} Appendix \thechapter\text{ }- \leftmark}}
+\fancypagestyle{plain}{\fancyhead{} % get rid of headers
+\renewcommand{\headrulewidth}{0pt}}
+}
+
+\fancypagestyle{MyLibStyle}{
+\pagestyle{fancy}
+\fancyheadoffset[LE,RO]{\marginparsep+\marginparwidth}
+\fancyhf{}
+\fancyhead[RE]{\textbf{\rightmark\quad\textcolor{yellow}{$\blacksquare$}\quad\textcolor{blue}{\thepage}}}
+\fancyhead[LO]{\textcolor{blue}{\textbf\thepage}\quad\textbf{\textcolor{yellow}{$\blacksquare$}\quad\leftmark}}
+\fancypagestyle{plain}{\fancyhead{} % get rid of headers
+\renewcommand{\headrulewidth}{0pt}}
+}
+
+\fancypagestyle{MyDankStyle}{
+\pagestyle{fancy}
+\fancyheadoffset[LE,RO]{\marginparsep+\marginparwidth}
+\fancyhf{}
+\fancyhead[RE]{\textbf{\rightmark\quad\textcolor{green}{$\blacksquare$}\quad\textcolor{blue}{\thepage}}}
+\fancyhead[LO]{\textcolor{blue}{\textbf\thepage}\quad\textbf{\textcolor{green}{$\blacksquare$}\quad \rightmark}}
+\fancypagestyle{plain}{\fancyhead{} % get rid of headers
+\renewcommand{\headrulewidth}{0pt}}
+}
+
+\fancypagestyle{MyProgStyle}{
+\pagestyle{fancy}
+\fancyheadoffset[LE,RO]{\marginparsep+\marginparwidth}
+\fancyhf{}
+\fancyhead[RE]{\textbf{Programme\quad\textcolor{brown}{$\blacksquare$}\quad\textcolor{blue}{\thepage}}}
+\fancyhead[LO]{\textcolor{blue}{\textbf\thepage}\quad\textbf{\textcolor{brown}{$\blacksquare$} Source Code}}
+\fancypagestyle{plain}{\fancyhead{} % get rid of headers
+\renewcommand{\headrulewidth}{0pt}}
+}
+
+\fancypagestyle{MySelbstStyle}{
+\pagestyle{fancy}
+\fancyheadoffset[LE,RO]{\marginparsep+\marginparwidth}
+\fancyhf{}
+\fancyhead[RE]{\textbf{Selbstständigkeitserklärung\quad\textcolor{black}{$\blacksquare$}\quad\textcolor{blue}{\thepage}}}
+\fancyhead[LO]{\textcolor{blue}{\textbf\thepage}\quad\textbf{\textcolor{black}{$\blacksquare$} Selbstständigkeitserklärung}}
+\fancypagestyle{plain}{\fancyhead{} % get rid of headers
+\renewcommand{\headrulewidth}{0pt}}
+}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+%\addbibresource{../../../Bibliography/literature.bib}
+%\addbibresource{../../Bibliography/literature.bib}
+%if the full document is compiled - then the individual printbib commands in the 
+%subfiles are not compiled
+\newcommand{\dobib}{ % Define the command
+    \printbibliography
+}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.2)  23 AUG 2023 11:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.2)  13 SEP 2023 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -538,13 +538,14 @@ Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \titlewidthfirst=\dimen280
 ))
 (./sphinxlatexstyletext.sty
-File: sphinxlatexstyletext.sty 2023/03/26 text styling
+File: sphinxlatexstyletext.sty 2023/07/23 text styling
 ) (./sphinxlatexobjects.sty
-File: sphinxlatexobjects.sty 2022/01/13 documentation environments
+File: sphinxlatexobjects.sty 2023/07/23 documentation environments
 \sphinxsignaturesep=\skip80
-\py@argswidth=\skip81
-\lineblockindentation=\skip82
-\DUlineblockindent=\skip83
+\sphinxsignaturelistskip=\skip81
+\py@argswidth=\skip82
+\lineblockindentation=\skip83
+\DUlineblockindent=\skip84
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -692,7 +693,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
-\Hy@SectionHShift=\skip84
+\Hy@SectionHShift=\skip85
 )
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/hypcap.sty
 Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
@@ -997,10 +998,10 @@ Package rerunfilecheck Info: File `wavepy.out' has not changed.
 (rerunfilecheck)             Checksum: 38230B026EA3F791ABA8D19D8703D09C;4415.
  ) 
 Here is how much of TeX's memory you used:
- 16105 strings out of 478287
- 269375 string characters out of 5849290
- 606249 words of memory out of 5000000
- 33840 multiletter control sequences out of 15000+600000
+ 16123 strings out of 478287
+ 269791 string characters out of 5849290
+ 606666 words of memory out of 5000000
+ 33858 multiletter control sequences out of 15000+600000
  524235 words of font info for 75 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  70i,11n,76p,1442b,700s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1016,7 +1017,7 @@ lic/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfont
 s/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/tcxtt.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on wavepy.pdf (19 pages, 200973 bytes).
+Output written on wavepy.pdf (19 pages, 201028 bytes).
 PDF statistics:
  351 PDF objects out of 1000 (max. 8388607)
  305 compressed objects within 4 object streams

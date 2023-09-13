@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How To Use WavePy &mdash; WavePy  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How To Guides" href="how_to.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            WavePy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How To Use WavePy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#axis-nomenclature">Axis Nomenclature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spectrum-calculations">Spectrum Calculations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#summary-file">Summary file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#b-field-interpolation">B-Field Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#files-are-not-copied-after-the-simulations-runned">Files are not copied after the simulations runned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interpolated-files-are-not-saved">Interpolated files are not saved</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wave-complains-it-cannot-find-a-zip-file-while-trying-to-plot">Wave complains it cannot find a zip file while trying to plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_to.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WavePy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How To Use WavePy</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-to-use-wavepy">
+<h1>How To Use WavePy<a class="headerlink" href="#how-to-use-wavepy" title="Link to this heading"></a></h1>
+<section id="axis-nomenclature">
+<h2>Axis Nomenclature<a class="headerlink" href="#axis-nomenclature" title="Link to this heading"></a></h2>
+<p>Flight direction of the electron is <code class="code docutils literal notranslate"><span class="pre">x</span></code> .
+The vertical direction (in planer undulators) is called
+<code class="code docutils literal notranslate"><span class="pre">y</span></code> and the horizontal is <code class="code docutils literal notranslate"><span class="pre">z</span></code>
+.</p>
+</section>
+<section id="spectrum-calculations">
+<h2>Spectrum Calculations<a class="headerlink" href="#spectrum-calculations" title="Link to this heading"></a></h2>
+<p>Import wavepy and create a wave instance</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wavepy</span> <span class="kn">import</span> <span class="n">WaveFromB</span>
+<span class="n">wave</span> <span class="o">=</span> <span class="n">WaveFromB</span><span class="p">(</span><span class="s1">&#39;By&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>WAVE can perform many different tasks, one of which is calculating a
+spectrum from a given B-field. This specific functionality is so far
+covered in wavepy. You can calculate the spectra from a magnetic field
+in Bydirection only by using <code class="code docutils literal notranslate"><span class="pre">By</span></code>, from By and Bz data
+by setting <code class="code docutils literal notranslate"><span class="pre">Byz</span></code> and from all components by writing
+<code class="code docutils literal notranslate"><span class="pre">Bxyz</span></code>. All field data should be in the format of two cols,
+the first one containing <code class="code docutils literal notranslate"><span class="pre">x</span></code> in mm and the second B in Tesla,
+no separators and header lines.
+Next you can get standard wave parameters by writing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get Wave-parameter</span>
+<span class="n">paras</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">get_paras</span><span class="p">()</span>
+<span class="c1"># Customize Parameters</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">field_folder</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;..../Fields/Interpolated/&#39;</span><span class="p">)</span> <span class="c1"># Field Folder</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">field_files</span><span class="o">.</span><span class="n">set</span><span class="p">(</span> <span class="p">[</span> <span class="s1">&#39;interp_b_field_gap_18.45_.dat&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="c1"># The magnetic field file(s) to be used in the simulation</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">res_folder</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;..../Spectrum_Results/First_Simu/&#39;</span><span class="p">)</span>   <span class="c1"># where to store simulations results</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">spec_calc</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># calculate spectrum? if not, only trajectory is calculated</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">freq_low</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>   <span class="c1"># lower frequency for spectrum calc. [eV]</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">freq_high</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">105</span><span class="p">)</span>  <span class="c1"># upper frequency for spectrum calc. [eV]</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">freq_num</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># number of frequencies for spectrum calc. [eV]</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">pinh_w</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>       <span class="c1"># pinhole width (horizontal-z) [mm]</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">pinh_h</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>       <span class="c1"># pinhole height (vertical-y) [mm]</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">pinh_x</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>      <span class="c1"># pinhole distance in beam direction (x) [m]</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">pinh_nz</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>     <span class="c1"># number of horizontal points in pinhole for spec. calc.</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">pinh_ny</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>     <span class="c1"># number of vetical points in pinhole for spec. calc.</span>
+<span class="n">paras</span><span class="o">.</span><span class="n">wave_res_copy_behaviour</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;copy_essentials&#39;</span><span class="p">)</span> <span class="c1">#&#39;copy_all&#39;</span>
+</pre></div>
+</div>
+<p>Paras is a <code class="code docutils literal notranslate"><span class="pre">StdParamenter</span></code> object. Then set the parameters and run wave:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set Parameters</span>
+<span class="n">wave</span><span class="o">.</span><span class="n">set_paras</span><span class="p">(</span><span class="n">paras</span><span class="p">)</span>
+<span class="c1"># Run WAVE</span>
+<span class="n">wave</span><span class="o">.</span><span class="n">run_wave</span><span class="p">()</span>
+</pre></div>
+</div>
+<section id="summary-file">
+<h3>Summary file<a class="headerlink" href="#summary-file" title="Link to this heading"></a></h3>
+<p>WavePy then saves all the data that is set to b e saved into
+the designated folder and zips all data for storage.
+On plotting the data is unzipped and zipped again.
+Furthermore, a fiel <code class="code docutils literal notranslate"><span class="pre">res_summary.txt</span></code> is stored
+inside the zip archive. This file contains some general
+information extracted from wave about the current simulation,
+including:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bmax</span> <span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="p">:</span> <span class="nb">max</span><span class="o">.</span> <span class="n">b</span> <span class="n">field</span>
+<span class="n">bmin</span> <span class="p">[</span><span class="n">T</span><span class="p">]</span> <span class="p">:</span> <span class="nb">min</span><span class="o">.</span> <span class="n">b</span> <span class="n">field</span>
+<span class="n">first_int</span> <span class="p">[</span><span class="n">Tm</span><span class="p">]</span> <span class="p">:</span> <span class="n">first</span> <span class="n">ingegral</span>
+<span class="n">scnd_int</span> <span class="p">[</span><span class="n">Tmm</span><span class="p">]</span> <span class="p">:</span> <span class="n">second</span> <span class="n">integral</span>
+<span class="n">power</span> <span class="p">[</span><span class="n">kW</span><span class="p">]</span> <span class="p">:</span> <span class="n">total</span> <span class="n">emitted</span> <span class="n">power</span>
+<span class="n">pinhole_x</span> <span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="p">:</span> <span class="n">dist</span><span class="o">.</span> <span class="n">of</span> <span class="n">pinhole</span> <span class="kn">from</span> <span class="nn">undulator</span> <span class="n">centre</span>
+<span class="n">Fund</span><span class="o">.</span> <span class="n">Freq</span><span class="o">.</span> <span class="p">[</span><span class="n">eV</span><span class="p">]</span> <span class="p">:</span> <span class="n">fundamental</span> <span class="n">frequency</span>
+<span class="n">Undu_Para</span> <span class="p">:</span> <span class="n">undulator</span> <span class="n">parameter</span> <span class="n">K</span>
+<span class="n">gamma</span> <span class="p">:</span> <span class="n">well</span><span class="p">,</span> <span class="n">you</span> <span class="n">guessed</span> <span class="n">it</span>
+<span class="n">half_opening_angle</span> <span class="p">[</span><span class="n">rad</span><span class="p">]</span> <span class="p">:</span> <span class="n">the</span> <span class="n">half</span><span class="o">-</span><span class="n">opening</span> <span class="n">angle</span>
+<span class="n">cone_radius_at_x</span> <span class="p">[</span><span class="n">mm</span><span class="p">]</span> <span class="p">:</span> <span class="n">the</span> <span class="n">cone</span><span class="o">-</span><span class="n">radius</span> <span class="n">at</span> <span class="n">the</span> <span class="n">position</span>
+<span class="n">of</span> <span class="n">the</span> <span class="n">pinhole</span> <span class="p">(</span><span class="n">tan</span><span class="p">(</span><span class="n">half_opening_angle</span><span class="p">)</span><span class="o">*</span><span class="n">pinhole_x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="b-field-interpolation">
+<h2>B-Field Interpolation<a class="headerlink" href="#b-field-interpolation" title="Link to this heading"></a></h2>
+<p>Keep in mind that WAVE exp ects the magnetic field data over mm.
+You can load files containing magnetic field data for different gaps by
+writing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b_field_data</span> <span class="o">=</span> <span class="n">wpy</span><span class="o">.</span><span class="n">load_b_fields_gap</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The file name format should be <code class="code docutils literal notranslate"><span class="pre">somename</span> <span class="pre">+</span> <span class="pre">gap_x_</span> <span class="pre">+</span> <span class="pre">restname</span> <span class="pre">+.ending</span></code>.
+E.g. <code class="code docutils literal notranslate"><span class="pre">myfile_g_23_.dat</span></code>. With the gap given in mm.
+To plot the b-field data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wpy</span><span class="o">.</span><span class="n">plot_b_field_data</span><span class="p">(</span> <span class="n">b_fields</span> <span class="o">=</span> <span class="n">b_field_data</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>You can center the data and cut all loaded magnetic fields to
+the defined on the same interval by writing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wpy</span><span class="o">.</span><span class="n">center_b_field_data</span><span class="p">(</span> <span class="n">b_fields</span> <span class="o">=</span> <span class="n">b_field_data</span><span class="p">,</span> <span class="n">lim_peak</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="p">)</span>
+<span class="n">wpy</span><span class="o">.</span><span class="n">cut_data_support</span><span class="p">(</span><span class="n">b_fields</span> <span class="o">=</span> <span class="n">b_field_data</span><span class="p">,</span> <span class="n">col_cut</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The centering is done by identifying the first and last
+peaks and centering those. The option <code class="code docutils literal notranslate"><span class="pre">lim_peak</span></code>
+gives the minimal height a p eak has to have to be identified as a
+peak - this is necessary to account for noise in the data.
+Save the pro cessed fields by writing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wpy</span><span class="o">.</span><span class="n">save_prepared_b_data</span><span class="p">(</span><span class="n">b_fields</span> <span class="o">=</span> <span class="n">b_field_data</span><span class="p">,</span> <span class="n">folder</span> <span class="o">=</span> <span class="n">folder</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next we can interpolate the data by writing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">interp_field</span> <span class="o">=</span> <span class="n">wpy</span><span class="o">.</span><span class="n">interpolate_b_data</span><span class="p">(</span><span class="n">b_fields</span> <span class="o">=</span> <span class="n">b_field_data</span><span class="p">,</span> <span class="n">gap</span> <span class="o">=</span> <span class="n">gap</span><span class="p">,</span> <span class="n">lim_peak</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where <code class="code docutils literal notranslate"><span class="pre">gap`</span></code> is the gap at which you’d like to interpolate.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="files-are-not-copied-after-the-simulations-runned">
+<h3>Files are not copied after the simulations runned<a class="headerlink" href="#files-are-not-copied-after-the-simulations-runned" title="Link to this heading"></a></h3>
+<p>Does the result folder exist? If not, create it.</p>
+</section>
+<section id="interpolated-files-are-not-saved">
+<h3>Interpolated files are not saved<a class="headerlink" href="#interpolated-files-are-not-saved" title="Link to this heading"></a></h3>
+<p>Does the folder where they should be saved exist? If not, create it.</p>
+<p>WAVE is complaining about: NEGATIVE OR ZERO PHOTON EN-
+ERGY OCCURED WHILE EXTENDING ENERGY
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Increase the number of energy points - parameter <code class="code docutils literal notranslate"><span class="pre">freq_num</span></code>.
+Wave is extending the energy range you specified in order to calculate
+the folding procedure and may, with too little points on which to
+calculate, run into negative energies. This is especially important at
+low energy values.</p>
+</section>
+<section id="wave-complains-it-cannot-find-a-zip-file-while-trying-to-plot">
+<h3>Wave complains it cannot find a zip file while trying to plot<a class="headerlink" href="#wave-complains-it-cannot-find-a-zip-file-while-trying-to-plot" title="Link to this heading"></a></h3>
+<p>Were the results files not prop erly stored before?
+Check if the data folder contains more than a zip file and
+delete everything but the zip file.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="how_to.html" class="btn btn-neutral float-right" title="How To Guides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Stefan Schaefers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

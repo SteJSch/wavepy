@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; WavePy  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How To Use WavePy" href="tutorial.html" />
+    <link rel="prev" title="Welcome to WavePy’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            WavePy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-wavepy">Install WavePy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wave-can-not-be-executed">Wave can not be Executed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-are-not-copied-after-the-simulations-runned">Files are not copied after the simulations runned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interpolated-files-are-not-saved">Interpolated files are not saved</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wave-complains-it-cannot-find-a-zip-file-while-trying-to-plot">Wave complains it cannot find a zip file while trying to plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">How To Use WavePy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to.html">How To Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WavePy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<section id="install-wavepy">
+<h2>Install WavePy<a class="headerlink" href="#install-wavepy" title="Link to this heading"></a></h2>
+<p>Wavepy will works on Linux, macOS and Windows.</p>
+<ul>
+<li><p>You will need Python 3.9 or newer. From a shell (“Terminal” on OSX),
+check your current Python version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>If that version is less than 3.9, you must update it.</p>
+<p>We recommend installing wavepy into a “virtual environment” so that this
+installation will not interfere with any existing Python software:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>~/wavepy-tutorial
+<span class="nb">source</span><span class="w"> </span>~/wavepy-tutorial/bin/activate
+</pre></div>
+</div>
+<p>Alternatively, if you are a
+<a class="reference external" href="https://conda.io/docs/user-guide/install/download.html">conda</a> user,
+you can create a conda environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>wavepy-tutorial<span class="w"> </span><span class="s2">&quot;python&gt;=3.9&quot;</span>
+conda<span class="w"> </span>activate<span class="w"> </span>wavepy-tutorial
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>wavepy
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="wave-can-not-be-executed">
+<h3>Wave can not be Executed<a class="headerlink" href="#wave-can-not-be-executed" title="Link to this heading"></a></h3>
+<p>Make sure that <code class="code docutils literal notranslate"><span class="pre">wavepy/WAVE/bin/wave.exe</span></code> is executable.</p>
+</section>
+<section id="files-are-not-copied-after-the-simulations-runned">
+<h3>Files are not copied after the simulations runned<a class="headerlink" href="#files-are-not-copied-after-the-simulations-runned" title="Link to this heading"></a></h3>
+<p>Does the result folder exist? If not, create it.</p>
+</section>
+<section id="interpolated-files-are-not-saved">
+<h3>Interpolated files are not saved<a class="headerlink" href="#interpolated-files-are-not-saved" title="Link to this heading"></a></h3>
+<p>Does the folder where they should be saved exist? If not, create it.</p>
+<p>WAVE is complaining about: NEGATIVE OR ZERO PHOTON EN-
+ERGY OCCURED WHILE EXTENDING ENERGY
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Increase the number of energy points - parameter <code class="code docutils literal notranslate"><span class="pre">freq_num</span></code>.
+Wave is extending the energy range you specified in order to calculate
+the folding procedure and may, with too little points on which to
+calculate, run into negative energies. This is especially important at
+low energy values.</p>
+</section>
+<section id="wave-complains-it-cannot-find-a-zip-file-while-trying-to-plot">
+<h3>Wave complains it cannot find a zip file while trying to plot<a class="headerlink" href="#wave-complains-it-cannot-find-a-zip-file-while-trying-to-plot" title="Link to this heading"></a></h3>
+<p>Were the results files not prop erly stored before?
+Check if the data folder contains more than a zip file and
+delete everything but the zip file.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to WavePy’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="How To Use WavePy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Stefan Schaefers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

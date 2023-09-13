@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; WavePy  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="How To Guides" href="how_to.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            WavePy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">How To Use WavePy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to.html">How To Guides</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simulation">Simulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wave">WAVE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wavepy.wave.WaveFromB"><code class="docutils literal notranslate"><span class="pre">WaveFromB</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#wave-api">WAVE API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wavepy.wave_API.WaveAPI"><code class="docutils literal notranslate"><span class="pre">WaveAPI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#elements">Elements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wavepy.wave_elements.WaveAttribute"><code class="docutils literal notranslate"><span class="pre">WaveAttribute</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wavepy.wave_elements.WaveElement"><code class="docutils literal notranslate"><span class="pre">WaveElement</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wavepy.standard_parameters.StdParameters"><code class="docutils literal notranslate"><span class="pre">StdParameters</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#preprocess-files">Preprocess Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wavepy.preprocess_wave_files.PreprocessWaveFiles"><code class="docutils literal notranslate"><span class="pre">PreprocessWaveFiles</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#postprocess-files">Postprocess Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wavepy.postprocess_wave_files.PostprocessWaveFiles"><code class="docutils literal notranslate"><span class="pre">PostprocessWaveFiles</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extract-and-plot">Extract and Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wavepy.extract_plot_results.ExtractAndPlot"><code class="docutils literal notranslate"><span class="pre">ExtractAndPlot</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WavePy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/API.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Link to this heading"></a></h1>
+<section id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Link to this heading"></a></h2>
+<section id="wave">
+<h3>WAVE<a class="headerlink" href="#wave" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="wavepy.wave.WaveFromB">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wavepy.wave.</span></span><span class="sig-name descname"><span class="pre">WaveFromB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'By'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.wave.WaveFromB" title="Link to this definition"></a></dt>
+<dd><p>WAVE class to perform spectrum calculations from b-field data files</p>
+<p>Initiates WAVE class object with self.std WAVE parameters
+b_type sets which b-fields are loaded from file: ‘y’: By,
+‘yz’ By and Bz, ‘xyz’ … . Each B-field from different file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Field. possible values: By, Byz, Bxyz. Defaults to ‘By’.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.wave.WaveFromB.get_paras">
+<span class="sig-name descname"><span class="pre">get_paras</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.wave.WaveFromB.get_paras" title="Link to this definition"></a></dt>
+<dd><p>Returns current parameters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.wave.WaveFromB.run_wave">
+<span class="sig-name descname"><span class="pre">run_wave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.wave.WaveFromB.run_wave" title="Link to this definition"></a></dt>
+<dd><p>Runs wave and postprocess the results</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.wave.WaveFromB.set_paras">
+<span class="sig-name descname"><span class="pre">set_paras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave_paras</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#wavepy.standard_parameters.StdParameters" title="wavepy.standard_parameters.StdParameters"><span class="pre">StdParameters</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.wave.WaveFromB.set_paras" title="Link to this definition"></a></dt>
+<dd><p>Sets new parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wave_paras</strong> (<a class="reference internal" href="#wavepy.standard_parameters.StdParameters" title="wavepy.standard_parameters.StdParameters"><em>StdParameters</em></a>) – Standard Parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="wave-api">
+<h3>WAVE API<a class="headerlink" href="#wave-api" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="wavepy.wave_API.WaveAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wavepy.wave_API.</span></span><span class="sig-name descname"><span class="pre">WaveAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave_folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.wave_API.WaveAPI" title="Link to this definition"></a></dt>
+<dd><p>API for the WAVE program</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_folder</strong> (<em>str</em>) – _description_</p></li>
+<li><p><strong>wave_folder</strong> (<em>str</em>) – _description_</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.wave_API.WaveAPI.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.wave_API.WaveAPI.run" title="Link to this definition"></a></dt>
+<dd><p>Run Wave from the self.wave_folder.</p>
+<p>If given, change the directory back to self.current_folder</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="elements">
+<h3>Elements<a class="headerlink" href="#elements" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="wavepy.wave_elements.WaveAttribute">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wavepy.wave_elements.</span></span><span class="sig-name descname"><span class="pre">WaveAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave_in_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.wave_elements.WaveAttribute" title="Link to this definition"></a></dt>
+<dd><p>Represents a wave attribute with a value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – Initial value of the attribute.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the attribute.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wavepy.wave_elements.WaveElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wavepy.wave_elements.</span></span><span class="sig-name descname"><span class="pre">WaveElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'By'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.wave_elements.WaveElement" title="Link to this definition"></a></dt>
+<dd><p>Represents a wave element with children.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Type of the wave element.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.wave_elements.WaveElement.children">
+<span class="sig-name descname"><span class="pre">children</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.wave_elements.WaveElement.children" title="Link to this definition"></a></dt>
+<dd><p>Yields the children of the WaveElement.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="wavepy.standard_parameters.StdParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wavepy.standard_parameters.</span></span><span class="sig-name descname"><span class="pre">StdParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'By'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.standard_parameters.StdParameters" title="Link to this definition"></a></dt>
+<dd><p>Represents standard parameters for wave simulations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Type of the wave element.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.standard_parameters.StdParameters.get_std_paras">
+<span class="sig-name descname"><span class="pre">get_std_paras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'By'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.standard_parameters.StdParameters.get_std_paras" title="Link to this definition"></a></dt>
+<dd><p>Returns a object containing WAVE standard parameters updated with standard values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>b_type</strong> (<em>str</em>) – Type of b-calculation. Options: ‘By’ (only By given), ‘Byz’, ‘Bxyz’ (each b-field in different file).</p></li>
+<li><p><strong>wave_prog_folder</strong> (<em>str</em>) – Main folder where wave is stored (ending on ‘/’).</p></li>
+<li><p><strong>in_file_folder</strong> (<em>str</em>) – Folder in which the wave in-files are stored (ending on ‘/’).</p></li>
+<li><p><strong>in_files</strong> (<em>dict</em>) – Dictionary of wave in-files for different b_type situations. Format: {b_type: wave_in_file}.</p></li>
+<li><p><strong>field_folder</strong> (<em>str</em>) – Folder where b-field files are stored.</p></li>
+<li><p><strong>field_files</strong> (<em>list</em>) – List of b-field files. Format: 2 cols - x[mm] and B[T], no separator, no headers.</p></li>
+<li><p><strong>res_folder</strong> (<em>str</em>) – Folder where results are stored (ending on ‘/’).</p></li>
+<li><p><strong>wave_data_res_folder</strong> (<em>str</em>) – Subfolder of res_folder where wave data is stored.</p></li>
+<li><p><strong>pics_folder</strong> (<em>str</em>) – Subfolder of res_folder where pictures are stored.</p></li>
+<li><p><strong>res_summary_file</strong> (<em>str</em>) – Name of the summary file to be written.</p></li>
+<li><p><strong>no_copy</strong> (<em>list</em>) – List of file names not to be copied/moved after simulation from wave stage folder.</p></li>
+<li><p><strong>wave_ending_extract</strong> (<em>list</em>) – List of file endings to move from wave stage folder after simulation.</p></li>
+<li><p><strong>wave_ending_copy</strong> (<em>list</em>) – List of file endings of files to be copied (not moved).</p></li>
+<li><p><strong>wave_res_copy_behaviour</strong> (<em>str</em>) – Behavior for copying wave results: ‘copy_all’, ‘copy_del_none’, ‘copy_essentials’.</p></li>
+<li><p><strong>wave_files_essentials</strong> (<em>list</em>) – List of essential files when wave_res_copy_behaviour is set to ‘copy_essentials’.</p></li>
+<li><p><strong>zip_res_folder</strong> (<em>bool</em>) – Truth value, whether to zip results or not.</p></li>
+<li><p><strong>freq_low</strong> (<em>float</em>) – Lower frequency (energy) of spectrum to calculate [eV].</p></li>
+<li><p><strong>freq_high</strong> (<em>float</em>) – Upper frequency (energy) of spectrum to calculate [eV].</p></li>
+<li><p><strong>freq_num</strong> (<em>int</em>) – Number of frequencies to calculate.</p></li>
+<li><p><strong>beam_en</strong> (<em>float</em>) – Beam energy in [GeV].</p></li>
+<li><p><strong>current</strong> (<em>float</em>) – Current in [A].</p></li>
+<li><p><strong>pinh_w</strong> (<em>float</em>) – Pinhole width (horizontal-z) [mm].</p></li>
+<li><p><strong>pinh_h</strong> (<em>float</em>) – Pinhole height (vertical-y) [mm].</p></li>
+<li><p><strong>spec_calc</strong> (<em>bool</em>) – Truth value, whether to calculate spectrum or only write trajectory.</p></li>
+<li><p><strong>pinh_x</strong> (<em>float</em>) – Position of pinhole along optical axis [m].</p></li>
+<li><p><strong>pinh_nz</strong> (<em>int</em>) – Number of points in pinhole horizontally.</p></li>
+<li><p><strong>pinh_ny</strong> (<em>int</em>) – Number of points in pinhole vertically.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="preprocess-files">
+<h3>Preprocess Files<a class="headerlink" href="#preprocess-files" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="wavepy.preprocess_wave_files.PreprocessWaveFiles">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wavepy.preprocess_wave_files.</span></span><span class="sig-name descname"><span class="pre">PreprocessWaveFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave_paras</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#wavepy.standard_parameters.StdParameters" title="wavepy.standard_parameters.StdParameters"><span class="pre">StdParameters</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.preprocess_wave_files.PreprocessWaveFiles" title="Link to this definition"></a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wave_paras</strong> (<a class="reference internal" href="#wavepy.standard_parameters.StdParameters" title="wavepy.standard_parameters.StdParameters"><em>StdParameters</em></a>) – Standard Parameters used for the simulation</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.preprocess_wave_files.PreprocessWaveFiles.create_wave_input">
+<span class="sig-name descname"><span class="pre">create_wave_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.preprocess_wave_files.PreprocessWaveFiles.create_wave_input" title="Link to this definition"></a></dt>
+<dd><p>Creates all the files needed as input fro Wave.</p>
+<p>Loads the input file set in wave_paras, updates properties
+based on other wave_paras properties,and copies the
+resulting file to the WAVE program folder.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.preprocess_wave_files.PreprocessWaveFiles.prepare_b_files_for_wave">
+<span class="sig-name descname"><span class="pre">prepare_b_files_for_wave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.preprocess_wave_files.PreprocessWaveFiles.prepare_b_files_for_wave" title="Link to this definition"></a></dt>
+<dd><p>Prepare the files for WAVE depending on the b type.</p>
+<p>Deoending on which b_type, copies and
+formats the b-field files needed</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="postprocess-files">
+<h3>Postprocess Files<a class="headerlink" href="#postprocess-files" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="wavepy.postprocess_wave_files.PostprocessWaveFiles">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wavepy.postprocess_wave_files.</span></span><span class="sig-name descname"><span class="pre">PostprocessWaveFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave_paras</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#wavepy.standard_parameters.StdParameters" title="wavepy.standard_parameters.StdParameters"><span class="pre">StdParameters</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.postprocess_wave_files.PostprocessWaveFiles" title="Link to this definition"></a></dt>
+<dd><p>A class for postprocessing WAVE files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wave_paras</strong> (<a class="reference internal" href="#wavepy.standard_parameters.StdParameters" title="wavepy.standard_parameters.StdParameters"><em>StdParameters</em></a>) – An instance of the StdParameters class.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.postprocess_wave_files.PostprocessWaveFiles.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave_folder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.postprocess_wave_files.PostprocessWaveFiles.cleanup" title="Link to this definition"></a></dt>
+<dd><p>Cleans up the WAVE run by removing the ‘WAVE.mhb’ file if it exists in the specified folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wave_folder</strong> (<em>str</em>) – The folder containing the WAVE run files.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.postprocess_wave_files.PostprocessWaveFiles.edit_wave_results">
+<span class="sig-name descname"><span class="pre">edit_wave_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.postprocess_wave_files.PostprocessWaveFiles.edit_wave_results" title="Link to this definition"></a></dt>
+<dd><p>Cleans the wave-stage folder and copies the desired files to their location,
+deletes non-desired files, and zips the results based on the wave_res_copy_behaviour setting.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.postprocess_wave_files.PostprocessWaveFiles.extract_summary">
+<span class="sig-name descname"><span class="pre">extract_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.postprocess_wave_files.PostprocessWaveFiles.extract_summary" title="Link to this definition"></a></dt>
+<dd><p>Extracts summary information from a WAVE run’s files in the specified folder
+and stores the results in the file self.wave_paras.res_summary_file within the folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>folder</strong> (<em>str</em>) – The folder containing the WAVE run files.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="extract-and-plot">
+<h3>Extract and Plot<a class="headerlink" href="#extract-and-plot" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="wavepy.extract_plot_results.ExtractAndPlot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wavepy.extract_plot_results.</span></span><span class="sig-name descname"><span class="pre">ExtractAndPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wave_paras</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.extract_plot_results.ExtractAndPlot" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="wavepy.extract_plot_results.ExtractAndPlot.extract_wave_results">
+<span class="sig-name descname"><span class="pre">extract_wave_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">en_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_data_w_pics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.extract_plot_results.ExtractAndPlot.extract_wave_results" title="Link to this definition"></a></dt>
+<dd><p>Extracts the desired results and returns a DataFrame with them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<em>list</em>) – A list containing the desired result types. Valid options are:
+- ‘traj_magn’: Extracts Trajectory and magnetic field data.
+- ‘power_distr’: Power distribution [W/mm^2].
+- ‘flux’: Flux.
+- ‘flux_dens’: Flux Density.
+- ‘flux_dens_distr’: Flux Density Distribution.
+- ‘power_dens_distr’: Power density distribution.
+- ‘brill’: Brilliance.</p></li>
+<li><p><strong>plot</strong> (<em>bool</em>) – Determines if loaded data is plotted or not.</p></li>
+<li><p><strong>en_range</strong> (<em>list</em>) – For distribution, gives the energy range over which the data is integrated.</p></li>
+<li><p><strong>xlim</strong> (<em>list</em>) – Sets the limits of the distribution plots in the horizontal direction.</p></li>
+<li><p><strong>ylim</strong> (<em>list</em>) – Sets the limits of the distribution plots in the vertical direction. For 2D plots, only xlim is considered if given.</p></li>
+<li><p><strong>save_data_w_pics</strong> (<em>bool</em>) – If True, saves the data for each plot alongside the picture.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of the loaded DataFrames.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wavepy.extract_plot_results.ExtractAndPlot.load_plot_stokes_distrib">
+<span class="sig-name descname"><span class="pre">load_plot_stokes_distrib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">en_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_data_w_pics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_distr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wavepy.extract_plot_results.ExtractAndPlot.load_plot_stokes_distrib" title="Link to this definition"></a></dt>
+<dd><p>loads stokes (flux-density) data from a folder, integrates the flux-density distribution over the en_range
+and cuts the plot horizontally and vertically to xlim and ylim, plots if plot = True and saves pic to save_folder
+returns the loaded and integrated data object
+If power_distr is True, then not the flux density but power density in the given energy
+range is calculated (multiplying all fluxes by the appropriate energies)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="how_to.html" class="btn btn-neutral float-left" title="How To Guides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Stefan Schaefers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

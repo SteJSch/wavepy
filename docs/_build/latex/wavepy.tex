@@ -64,7 +64,7 @@
 
 
 \title{WavePy}
-\date{Aug 23, 2023}
+\date{Sep 13, 2023}
 \release{}
 \author{Stefan Schaefers}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -225,8 +225,8 @@ Next you can get standard wave parameters by writing:
 \PYG{n}{paras} \PYG{o}{=} \PYG{n}{wave}\PYG{o}{.}\PYG{n}{get\PYGZus{}paras}\PYG{p}{(}\PYG{p}{)}
 \PYG{c+c1}{\PYGZsh{} Customize Parameters}
 \PYG{n}{paras}\PYG{o}{.}\PYG{n}{field\PYGZus{}folder}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{..../Fields/Interpolated/}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Field Folder}
-\PYG{n}{paras}\PYG{o}{.}\PYG{n}{field\PYGZus{}files}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(} \PYG{p}{[} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{interp\PYGZus{}b\PYGZus{}field\PYGZus{}gap\PYGZus{}18.45\PYGZus{}.dat}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{p}{)} \PYG{c+c1}{\PYGZsh{} The magnetic field files to be used in the simulation}
-\PYG{n}{paras}\PYG{o}{.}\PYG{n}{res\PYGZus{}folder}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{..../Spectrum\PYGZus{}Results/First\PYGZus{}Simu/}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} where to store the wave results}
+\PYG{n}{paras}\PYG{o}{.}\PYG{n}{field\PYGZus{}files}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(} \PYG{p}{[} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{interp\PYGZus{}b\PYGZus{}field\PYGZus{}gap\PYGZus{}18.45\PYGZus{}.dat}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{p}{)} \PYG{c+c1}{\PYGZsh{} The magnetic field file(s) to be used in the simulation}
+\PYG{n}{paras}\PYG{o}{.}\PYG{n}{res\PYGZus{}folder}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{..../Spectrum\PYGZus{}Results/First\PYGZus{}Simu/}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} where to store simulations results}
 \PYG{n}{paras}\PYG{o}{.}\PYG{n}{spec\PYGZus{}calc}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}    \PYG{c+c1}{\PYGZsh{} calculate spectrum? if not, only trajectory is calculated}
 \PYG{n}{paras}\PYG{o}{.}\PYG{n}{freq\PYGZus{}low}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} lower frequency for spectrum calc. [eV]}
 \PYG{n}{paras}\PYG{o}{.}\PYG{n}{freq\PYGZus{}high}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(}\PYG{l+m+mi}{105}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} upper frequency for spectrum calc. [eV]}
@@ -383,7 +383,7 @@ nothing here at the moment
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.wave.WaveFromB}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{wavepy.wave.}}\sphinxbfcode{\sphinxupquote{WaveFromB}}}{\sphinxparam{\DUrole{n,n}{b\_type}\DUrole{o,o}{=}\DUrole{default_value}{\textquotesingle{}By\textquotesingle{}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{ }}}\sphinxcode{\sphinxupquote{wavepy.wave.}}\sphinxbfcode{\sphinxupquote{WaveFromB}}}{\sphinxparam{\DUrole{n}{b\_type}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}By\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 WAVE class to perform spectrum calculations from b\sphinxhyphen{}field data files
@@ -427,7 +427,7 @@ Runs wave and postprocess the results
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.wave.WaveFromB.set_paras}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{set\_paras}}}{\sphinxparam{\DUrole{n,n}{wave\_paras}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{{\hyperref[\detokenize{API:wavepy.standard_parameters.StdParameters}]{\sphinxcrossref{StdParameters}}}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{set\_paras}}}{\sphinxparam{\DUrole{n}{wave\_paras}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{{\hyperref[\detokenize{API:wavepy.standard_parameters.StdParameters}]{\sphinxcrossref{StdParameters}}}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Sets new parameters
@@ -451,7 +451,7 @@ Sets new parameters
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.wave_API.WaveAPI}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{wavepy.wave\_API.}}\sphinxbfcode{\sphinxupquote{WaveAPI}}}{\sphinxparam{\DUrole{n,n}{wave\_folder}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{current\_folder}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{ }}}\sphinxcode{\sphinxupquote{wavepy.wave\_API.}}\sphinxbfcode{\sphinxupquote{WaveAPI}}}{\sphinxparam{\DUrole{n}{wave\_folder}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{str}}\sphinxparamcomma \sphinxparam{\DUrole{n}{current\_folder}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{str}\DUrole{w}{ }\DUrole{o}{=}\DUrole{w}{ }\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 API for the WAVE program
@@ -494,7 +494,7 @@ If given, change the directory back to self.current\_folder
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.wave_elements.WaveAttribute}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{wavepy.wave\_elements.}}\sphinxbfcode{\sphinxupquote{WaveAttribute}}}{\sphinxparam{\DUrole{n,n}{value}\DUrole{o,o}{=}\DUrole{default_value}{None}}, \sphinxparam{\DUrole{n,n}{name}\DUrole{o,o}{=}\DUrole{default_value}{None}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{ }}}\sphinxcode{\sphinxupquote{wavepy.wave\_elements.}}\sphinxbfcode{\sphinxupquote{WaveAttribute}}}{\sphinxparam{\DUrole{n}{value}\DUrole{o}{=}\DUrole{default_value}{None}}\sphinxparamcomma \sphinxparam{\DUrole{n}{name}\DUrole{o}{=}\DUrole{default_value}{None}}\sphinxparamcomma \sphinxparam{\DUrole{n}{wave\_in\_name}\DUrole{o}{=}\DUrole{default_value}{None}}\sphinxparamcomma \sphinxparam{\DUrole{n}{unit}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{fac}\DUrole{o}{=}\DUrole{default_value}{None}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Represents a wave attribute with a value.
@@ -519,7 +519,7 @@ Represents a wave attribute with a value.
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.wave_elements.WaveElement}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{wavepy.wave\_elements.}}\sphinxbfcode{\sphinxupquote{WaveElement}}}{\sphinxparam{\DUrole{n,n}{b\_type}\DUrole{o,o}{=}\DUrole{default_value}{\textquotesingle{}By\textquotesingle{}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{ }}}\sphinxcode{\sphinxupquote{wavepy.wave\_elements.}}\sphinxbfcode{\sphinxupquote{WaveElement}}}{\sphinxparam{\DUrole{n}{b\_type}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}By\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Represents a wave element with children.
@@ -549,7 +549,7 @@ Yields the children of the WaveElement.
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.standard_parameters.StdParameters}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{wavepy.standard\_parameters.}}\sphinxbfcode{\sphinxupquote{StdParameters}}}{\sphinxparam{\DUrole{n,n}{b\_type}\DUrole{o,o}{=}\DUrole{default_value}{\textquotesingle{}By\textquotesingle{}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{ }}}\sphinxcode{\sphinxupquote{wavepy.standard\_parameters.}}\sphinxbfcode{\sphinxupquote{StdParameters}}}{\sphinxparam{\DUrole{n}{b\_type}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}By\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Represents standard parameters for wave simulations.
@@ -564,7 +564,7 @@ Represents standard parameters for wave simulations.
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.standard_parameters.StdParameters.get_std_paras}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_std\_paras}}}{\sphinxparam{\DUrole{n,n}{b\_type}\DUrole{o,o}{=}\DUrole{default_value}{\textquotesingle{}By\textquotesingle{}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_std\_paras}}}{\sphinxparam{\DUrole{n}{b\_type}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}By\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Returns a object containing WAVE standard parameters updated with standard values
@@ -695,7 +695,7 @@ Returns a object containing WAVE standard parameters updated with standard value
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.preprocess_wave_files.PreprocessWaveFiles}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{wavepy.preprocess\_wave\_files.}}\sphinxbfcode{\sphinxupquote{PreprocessWaveFiles}}}{\sphinxparam{\DUrole{n,n}{wave\_paras}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{{\hyperref[\detokenize{API:wavepy.standard_parameters.StdParameters}]{\sphinxcrossref{StdParameters}}}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{ }}}\sphinxcode{\sphinxupquote{wavepy.preprocess\_wave\_files.}}\sphinxbfcode{\sphinxupquote{PreprocessWaveFiles}}}{\sphinxparam{\DUrole{n}{wave\_paras}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{{\hyperref[\detokenize{API:wavepy.standard_parameters.StdParameters}]{\sphinxcrossref{StdParameters}}}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 \_summary\_
@@ -749,7 +749,7 @@ formats the b\sphinxhyphen{}field files needed
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.postprocess_wave_files.PostprocessWaveFiles}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{wavepy.postprocess\_wave\_files.}}\sphinxbfcode{\sphinxupquote{PostprocessWaveFiles}}}{\sphinxparam{\DUrole{n,n}{wave\_paras}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{{\hyperref[\detokenize{API:wavepy.standard_parameters.StdParameters}]{\sphinxcrossref{StdParameters}}}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{ }}}\sphinxcode{\sphinxupquote{wavepy.postprocess\_wave\_files.}}\sphinxbfcode{\sphinxupquote{PostprocessWaveFiles}}}{\sphinxparam{\DUrole{n}{wave\_paras}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{{\hyperref[\detokenize{API:wavepy.standard_parameters.StdParameters}]{\sphinxcrossref{StdParameters}}}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 A class for postprocessing WAVE files.
@@ -764,7 +764,7 @@ A class for postprocessing WAVE files.
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.postprocess_wave_files.PostprocessWaveFiles.cleanup}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{cleanup}}}{\sphinxparam{\DUrole{n,n}{wave\_folder}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{cleanup}}}{\sphinxparam{\DUrole{n}{wave\_folder}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Cleans up the WAVE run by removing the ‘WAVE.mhb’ file if it exists in the specified folder.
@@ -795,7 +795,7 @@ deletes non\sphinxhyphen{}desired files, and zips the results based on the wave\
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.postprocess_wave_files.PostprocessWaveFiles.extract_summary}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{extract\_summary}}}{\sphinxparam{\DUrole{n,n}{folder}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{extract\_summary}}}{\sphinxparam{\DUrole{n}{folder}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Extracts summary information from a WAVE run’s files in the specified folder
@@ -820,13 +820,13 @@ and stores the results in the file self.wave\_paras.res\_summary\_file within th
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.extract_plot_results.ExtractAndPlot}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{wavepy.extract\_plot\_results.}}\sphinxbfcode{\sphinxupquote{ExtractAndPlot}}}{\sphinxparam{\DUrole{n,n}{wave\_paras}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{ }}}\sphinxcode{\sphinxupquote{wavepy.extract\_plot\_results.}}\sphinxbfcode{\sphinxupquote{ExtractAndPlot}}}{\sphinxparam{\DUrole{n}{wave\_paras}}}{}
 \pysigstopsignatures\index{extract\_wave\_results() (wavepy.extract\_plot\_results.ExtractAndPlot method)@\spxentry{extract\_wave\_results()}\spxextra{wavepy.extract\_plot\_results.ExtractAndPlot method}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.extract_plot_results.ExtractAndPlot.extract_wave_results}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{extract\_wave\_results}}}{\sphinxparam{\DUrole{n,n}{results}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}}, \sphinxparam{\DUrole{n,n}{plot}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{bool}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{False}}, \sphinxparam{\DUrole{n,n}{en\_range}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{{[}{]}}}, \sphinxparam{\DUrole{n,n}{xlim}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{{[}{]}}}, \sphinxparam{\DUrole{n,n}{ylim}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{{[}{]}}}, \sphinxparam{\DUrole{n,n}{save\_data\_w\_pics}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{bool}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{extract\_wave\_results}}}{\sphinxparam{\DUrole{n}{results}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{list}}\sphinxparamcomma \sphinxparam{\DUrole{n}{plot}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{bool}\DUrole{w}{ }\DUrole{o}{=}\DUrole{w}{ }\DUrole{default_value}{False}}\sphinxparamcomma \sphinxparam{\DUrole{n}{en\_range}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{list}\DUrole{w}{ }\DUrole{o}{=}\DUrole{w}{ }\DUrole{default_value}{{[}{]}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{xlim}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{list}\DUrole{w}{ }\DUrole{o}{=}\DUrole{w}{ }\DUrole{default_value}{{[}{]}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{ylim}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{list}\DUrole{w}{ }\DUrole{o}{=}\DUrole{w}{ }\DUrole{default_value}{{[}{]}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{save\_data\_w\_pics}\DUrole{p}{:}\DUrole{w}{ }\DUrole{n}{bool}\DUrole{w}{ }\DUrole{o}{=}\DUrole{w}{ }\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Extracts the desired results and returns a DataFrame with them.
@@ -882,7 +882,7 @@ list
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{API:wavepy.extract_plot_results.ExtractAndPlot.load_plot_stokes_distrib}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{load\_plot\_stokes\_distrib}}}{\sphinxparam{\DUrole{n,n}{folder}}, \sphinxparam{\DUrole{n,n}{en\_range}\DUrole{o,o}{=}\DUrole{default_value}{{[}{]}}}, \sphinxparam{\DUrole{n,n}{xlim}\DUrole{o,o}{=}\DUrole{default_value}{{[}{]}}}, \sphinxparam{\DUrole{n,n}{ylim}\DUrole{o,o}{=}\DUrole{default_value}{{[}{]}}}, \sphinxparam{\DUrole{n,n}{plot}\DUrole{o,o}{=}\DUrole{default_value}{True}}, \sphinxparam{\DUrole{n,n}{save\_folder}\DUrole{o,o}{=}\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{save\_data\_w\_pics}\DUrole{o,o}{=}\DUrole{default_value}{False}}, \sphinxparam{\DUrole{n,n}{power\_distr}\DUrole{o,o}{=}\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{load\_plot\_stokes\_distrib}}}{\sphinxparam{\DUrole{n}{folder}}\sphinxparamcomma \sphinxparam{\DUrole{n}{en\_range}\DUrole{o}{=}\DUrole{default_value}{{[}{]}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{xlim}\DUrole{o}{=}\DUrole{default_value}{{[}{]}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{ylim}\DUrole{o}{=}\DUrole{default_value}{{[}{]}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{plot}\DUrole{o}{=}\DUrole{default_value}{True}}\sphinxparamcomma \sphinxparam{\DUrole{n}{save\_folder}\DUrole{o}{=}\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}\sphinxparamcomma \sphinxparam{\DUrole{n}{save\_data\_w\_pics}\DUrole{o}{=}\DUrole{default_value}{False}}\sphinxparamcomma \sphinxparam{\DUrole{n}{power\_distr}\DUrole{o}{=}\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 loads stokes (flux\sphinxhyphen{}density) data from a folder, integrates the flux\sphinxhyphen{}density distribution over the en\_range

@@ -59,4 +59,4 @@ data = ep.extract_wave_results(results = ['flux_dens_distr' ],
                                  plot = True, 
                                  en_range = [100,105])
 
-pdb.set_trace()
+#pdb.set_trace()
